@@ -11,7 +11,7 @@ def get_turbidity_data():
             database="u263681140_students1"
         )
         cursor = conn.cursor()
-        cursor.execute("SELECT id, value, timestamp FROM Turbudity ORDER BY timestamp DESC LIMIT 10")
+        cursor.execute("SELECT id, value FROM Turbudity")
         data = cursor.fetchall()
         conn.close()
         return pd.DataFrame(data, columns=["ID", "Turbidity Value", "Timestamp"])
